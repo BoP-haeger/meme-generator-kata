@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meme Generator</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 2rem auto; padding: 0 1rem; }
+    form { display: grid; gap: 0.75rem; }
+    label { display: grid; gap: 0.25rem; font-weight: 600; }
+    input, button { font: inherit; }
+    input[type="text"] { padding: 0.4rem; }
+    button { justify-self: start; padding: 0.5rem 1rem; }
+    #error { color: #b00020; font-weight: 600; }
+    #meme { max-width: 100%; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Meme Generator</h1>
+  <form id="meme-form">
+    <label>Image (JPEG) <input type="file" name="image" accept="image/jpeg" required></label>
+    <label>Top text <input type="text" name="top_text"></label>
+    <label>Bottom text <input type="text" name="bottom_text"></label>
+    <button type="submit">Create meme</button>
+  </form>
+  <p id="error" role="alert" hidden></p>
+  <img id="meme" alt="Meme" hidden>
+
+  <script>
+    const form = document.getElementById("meme-form");
+    const error = document.getElementById("error");
+    const meme = document.getElementById("meme");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      error.hidden = true;
+      meme.hidden = true;
+      let response;
+      try {
+        response = await fetch("/memes", { method: "POST", body: new FormData(form) });
+      } catch {
+        showError("The server could not be reached.");
+        return;
+      }
+      if (!response.ok) {
+        showError(await errorMessage(response));
+        return;
+      }
+      if (meme.src) URL.revokeObjectURL(meme.src);
+      meme.src = URL.createObjectURL(await response.blob());
+      try {
+        await meme.decode();
+      } catch {
+        showError("The meme could not be displayed.");
+        return;
+      }
+      meme.hidden = false;
+    });
+
+    // Our errors are {"error", "message"}; FastAPI's own validation errors are {"detail": [...]}.
+    async function errorMessage(response) {
+      const text = await response.text();
+      try {
+        const body = JSON.parse(text);
+        if (body.message) return `Error ${response.status}: ${body.message}`;
+        if (Array.isArray(body.detail)) {
+          const details = body.detail.map((d) => `${d.loc.at(-1)}: ${d.msg}`).join("; ");
+          return `Error ${response.status}: ${details}`;
+        }
+      } catch {
+        // not JSON, show the raw text below
+      }
+      return `Error ${response.status}: ${text || response.statusText}`;
+    }
+
+    function showError(message) {
+      error.textContent = message;
+      error.hidden = false;
+    }
+  </script>
+</body>
+</html>
