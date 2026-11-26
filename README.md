@@ -96,6 +96,7 @@ In einem Fork sind Issues auf GitHub standardmäßig abgeschaltet. Lesen auch au
 
 ## Lizenzen
 
+- Code: MIT-Lizenz, siehe [`LICENSE`](LICENSE).
 - Die Aufgabe stammt aus der Meme-Generator-Kata in [vanonselenp/agentic-katas](https://github.com/vanonselenp/agentic-katas), Copyright (c) 2026 Peter van Onselen, MIT-Lizenz. Lizenztext: [`LICENSE-agentic-katas`](LICENSE-agentic-katas).
 - Font Anton: Copyright 2020 The Anton Project Authors, SIL Open Font License 1.1, siehe [`assets/fonts/OFL.txt`](assets/fonts/OFL.txt).
 
