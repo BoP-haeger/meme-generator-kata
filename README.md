@@ -60,5 +60,5 @@ Die offenen Anforderungen stehen als Issues auf GitHub:
 
 ## Lizenzen
 
-- Die Aufgabe stammt aus der Meme-Generator-Kata in [vanonselenp/agentic-katas](https://github.com/vanonselenp/agentic-katas), Copyright (c) 2026 Peter van Onselen, MIT-Lizenz. Brief und Lizenztext liegen in [`trail-1/kata-meme-generator/`](https://github.com/BoP-haeger/agentic-coding-schule-staffel-1/tree/main/trail-1/kata-meme-generator) im Teilnehmer-Repo.
+- Die Aufgabe stammt aus der Meme-Generator-Kata in [vanonselenp/agentic-katas](https://github.com/vanonselenp/agentic-katas), Copyright (c) 2026 Peter van Onselen, MIT-Lizenz. Lizenztext: [`LICENSE-agentic-katas`](LICENSE-agentic-katas).
 - Font Anton: Copyright 2020 The Anton Project Authors, SIL Open Font License 1.1, siehe [`assets/fonts/OFL.txt`](assets/fonts/OFL.txt).

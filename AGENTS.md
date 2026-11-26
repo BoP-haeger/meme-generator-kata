@@ -1,6 +1,6 @@
 # Meme Generator
 
-Web-App, die eine Caption (Top text, Bottom text) im Meme-Stil auf ein hochgeladenes Bild schreibt. Python 3.13, FastAPI, Pillow, verwaltet mit uv. Alle Befehle laufen in diesem Ordner. Offene Anforderungen F1–F10 stehen als [Issues](https://github.com/BoP-haeger/meme-generator-kata/issues) im Original-Repo, Issue-Nummer = F-Nummer. Lesen auch aus einem Fork: `gh issue view <n> -R BoP-haeger/meme-generator-kata`.
+Web-App, die eine Caption (Top text, Bottom text) im Meme-Stil auf ein hochgeladenes Bild schreibt. Python 3.13, FastAPI, Pillow, verwaltet mit uv. Alle Befehle laufen in diesem Ordner. Offene Anforderungen F1–F10 stehen als [Issues](https://github.com/BoP-haeger/meme-generator-kata/issues) in `BoP-haeger/meme-generator-kata`, Issue-Nummer = F-Nummer. Lesen auch aus einem Fork: `gh issue view <n> -R BoP-haeger/meme-generator-kata`.
 
 ## Aufbau
 
